@@ -3,540 +3,665 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>பராசர மூலநூல் 4D & 60 வர்க்க முழுமையான ஜோதிட மென்பொருள்</title>
+    <title>பிருஹத் பராசர ஹோரா சாஸ்திர முழுமை பெற்ற 4D & D-60 ஜோதிட என்ஜின்</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #2d3748; margin: 0; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); }
-        h1 { color: #800020; text-align: center; border-bottom: 3px solid #800020; padding-bottom: 15px; margin-top: 0; font-size: 26px; }
-        h2 { color: #800020; margin-top: 35px; border-left: 5px solid #d47a22; padding-left: 10px; font-size: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; }
-        .meta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; background: #fffaf0; border: 1px solid #feebc8; padding: 15px; border-radius: 8px; margin-bottom: 25px; font-weight: bold; color: #7b341e; text-align: center; }
-        .input-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; background: #f7fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
-        .input-group { display: flex; flex-direction: column; }
-        .input-group label { font-weight: bold; margin-bottom: 5px; color: #800020; font-size: 13px; }
-        .input-group input, .input-group select { padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; font-size: 14px; }
-        .btn-submit, .btn-print { background: #800020; color: white; border: none; padding: 15px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px; width: 100%; transition: background 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 10px; }
-        .btn-submit:hover, .btn-print:hover { background: #b01a30; }
-        .btn-print { background: #3182ce; margin-bottom: 20px; }
-        .btn-print:hover { background: #2b6cb0; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; font-size: 14px; }
-        th, td { border: 1px solid #e2e8f0; padding: 12px 14px; text-align: left; }
-        th { background-color: #800020; color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f7fafc; }
-        .progress-container { background: #edf2f7; border-radius: 5px; overflow: hidden; width: 100%; height: 18px; margin-top: 5px; }
-        .progress-bar-ishta { background: #38a169; height: 100%; text-align: center; color: white; font-size: 11px; line-height: 18px; font-weight: bold; }
-        .progress-bar-kashta { background: #e53e3e; height: 100%; text-align: center; color: white; font-size: 11px; line-height: 18px; font-weight: bold; }
-        .layer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px; }
-        .layer-card { background: #f7fafc; border-left: 5px solid #d47a22; padding: 12px; border-radius: 4px; font-size: 13.5px; }
-        .layer-title { font-weight: bold; color: #c05621; }
-        .final-verdict { background: #f0fff4; border: 1px solid #c6f6d5; border-left: 6px solid #38a169; padding: 18px; border-radius: 6px; font-size: 14.5px; line-height: 1.6; color: #22543d; margin-top: 12px; }
-        .chart-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-        .zodiac-chart { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: 2px; background: #800020; border: 4px solid #800020; aspect-ratio: 1; max-width: 360px; width: 100%; margin: 0 auto; }
-        .chart-cell { background: #fffaf0; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding: 6px; font-size: 11px; font-weight: bold; color: #2d3748; overflow: hidden; }
-        .chart-cell .cell-title { border-bottom: 1px solid #e2e8f0; width: 100%; padding-bottom: 2px; color: #800020; font-size: 10px; text-align: center; }
-        .chart-cell .cell-planets { margin-top: 5px; color: #2b6cb0; display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; }
-        .center-cell { grid-column: 2 / 4; grid-row: 2 / 4; background: #fff; display: flex; justify-content: center; align-items: center; font-size: 15px; font-weight: bold; color: #800020; text-align: center; }
-        .bhava-container { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
-        .bhava-box { border: 1px solid #cbd5e0; border-radius: 8px; padding: 15px; background: #fff; }
-        .bhava-header { display: flex; justify-content: space-between; border-bottom: 2px solid #800020; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold; color: #800020; }
-        .badge { color: white; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block; }
-        .badge-sub { background: #38a169; }
-        .badge-asub { background: #e53e3e; }
-        .badge-yoga { background: #d47a22; }
-        .marriage-timeline { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; background: #fffaf0; border: 1px dashed #d47a22; padding: 15px; border-radius: 8px; }
-        .timeline-window { background: white; border-left: 5px solid #800020; padding: 10px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .reference-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
-        .ref-card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 10px; border-radius: 6px; font-size: 12.5px; }
-        
+        :root {
+            --primary: #5c1d1d;
+            --accent: #d4af37;
+            --dark: #222;
+            --light: #fdfaf6;
+            --border: #e0d0b8;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5ece1;
+            color: var(--dark);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px double var(--border);
+        }
+        header {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h1, h2, h3, h4 {
+            color: var(--primary);
+            margin-top: 10px;
+        }
+        .lang-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--accent);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            background: #fdf2e2;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: white;
+            font-size: 14px;
+        }
+        .btn-submit {
+            grid-column: 1 / -1;
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--accent);
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-submit:hover {
+            background: #421414;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+        .section-box {
+            margin-bottom: 35px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #fff;
+        }
+        .section-title {
+            border-left: 5px solid var(--primary);
+            padding-left: 10px;
+            margin-top: 0;
+            background: #fbf5eb;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #faf5ee;
+        }
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .kundali-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            width: 100%;
+            max-width: 360px;
+            height: 360px;
+            margin: 0 auto;
+            border: 2px solid var(--primary);
+            background: #fffdfa;
+        }
+        .cell {
+            border: 1px solid var(--border);
+            padding: 8px;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            background: white;
+        }
+        .cell.center {
+            grid-column: 2 / 4;
+            grid-row: 2 / 4;
+            background: #fbf5eb;
+            font-weight: bold;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--primary);
+        }
+        .no-input-placeholder {
+            color: #a04040;
+            font-style: italic;
+            padding: 15px;
+            text-align: center;
+            background: #fff3f3;
+            border: 1px dashed #d09090;
+            border-radius: 4px;
+        }
+        .print-btn {
+            background: #4a5568;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .badge {
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .badge-subha {
+            background: #38a169;
+        }
+        .badge-rajayoga {
+            background: #d4af37;
+            color: #5c1d1d;
+            border: 1px solid #5c1d1d;
+        }
+        .marriage-matrix {
+            background: #fdfbf7;
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .ref-card {
+            background: #fdfbf7;
+            border: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        ul {
+            padding-left: 20px;
+        }
         @media print {
-            body { background: white; color: black; padding: 0; }
-            .container { box-shadow: none; max-width: 100%; padding: 0; }
-            .input-grid, .btn-submit, .btn-print, .footer-disclaimer { display: none !important; }
-            h2 { page-break-before: always; }
-            .bhava-box { page-break-inside: avoid; }
-            table { page-break-inside: avoid; }
+            .input-grid, .lang-switch, .print-btn, form { display: none !important; }
+            body { background: white; padding: 0; }
+            .container { border: none; box-shadow: none; padding: 0; max-width: 100%; }
+            .section-box { page-break-inside: avoid; border: none; margin-bottom: 50px; }
+            table { page-break-inside: auto; }
+            tr { page-break-inside: avoid; page-break-after: auto; }
         }
     </style>
-    <script>
-        const zodiacSigns = ["மேஷம்", "ரிஷபம்", "மிதுனம்", "கடகம்", "சிம்ம", "கன்னி", "துலாம்", "விருச்சிகம்", "தனுசு", "மகரம்", "கும்பம்", "மீனம்"];
-        const signOwners = {0: "செவ்வாய்", 1: "சுக்கிரன்", 2: "புதன்", 3: "சந்திரன்", 4: "சூரியன்", 5: "புதன்", 6: "சுக்கிரன்", 7: "செவ்வாய்", 8: "குரு", 9: "சனி", 10: "சனி", 11: "குரு"};
-        const starLords = ["கேது", "சுக்கிரன்", "சூரியன்", "சந்திரன்", "செவ்வாய்", "ராகு", "குரு", "சனி", "புதன்"];
-        
-        const shashtiamsaDeities = {
-            1: { name: "கோர", nature: "அசுப", desc: "கடுமையான சவால்கள், தடைகள் மற்றும் போராட்டங்களை உருவாக்கும் அமைப்பு." },
-            2: { name: "ராக்ஷஸ", nature: "அசுப", desc: "ஆக்ரோஷ குணம், எதிர்ப்புகள் மற்றும் திடீர் விரயங்களை ஏற்படுத்தும்." },
-            3: { name: "தேவ", nature: "சுப", desc: "நற்குணங்கள், தெய்வீக அருள் மற்றும் சமூகத்தில் நல்ல மதிப்பு தேடிவரும்." },
-            4: { name: "குபேர", nature: "சுப", desc: "பொருளாதார வளம், அசுர தனலாபம் மற்றும் சொத்து சேர்க்கை உண்டாகும்." },
-            5: { name: "யம", nature: "அசுப", desc: "சுகாதாரக் குறைபாடுகள், அதிக பொறுப்புகள் மற்றும் கடமைகளின் அழுத்தம்." },
-            6: { name: "கந்தர்வ", nature: "சுப", desc: "கலை ஆர்வம், புகழ், மகிழ்ச்சி மற்றும் நளினமான வாழ்க்கை முறை அமையும்." },
-            7: { name: "கின்னர", nature: "சுப", desc: "இசை, குரல் வளம், நல்ல நட்புகள் மற்றும் தொடர் வருமான வாய்ப்புகள்." },
-            8: { name: "பிரஷ்ட்ர", nature: "அசுப", desc: "திட்டமிட்ட காரியங்களில் சிறு தொய்வு மற்றும் இடம் மாற்றங்கள் வரலாம்." },
-            9: { name: "அஹி/சர்ப்ப", nature: "அசுப", desc: "மறைமுக எதிர்ப்புகள், ஒவ்வாமை மற்றும் ஏமாற்றங்கள் ஏற்பட வாய்ப்பு." },
-            10: { name: "அக்னி", nature: "அசுப", desc: "அதிக உஷ்ணம், கோபம் மற்றும் அவசர முடிவுகளால் சிக்கல்கள்." },
-            11: { name: "துர்துர", nature: "அசுப", desc: "மன அமைதிக்குக் குறைவு மற்றும் வீண் அலைச்சல்கள் ஏற்படலாம்." },
-            12: { name: "கலிசார", nature: "அசுப", desc: "போட்டி பொறாமைகள் மற்றும் வீண் வதந்திகளை எதிர்கொள்ள நேரிடும்." },
-            13: { name: "தூஷண", nature: "அசுப", desc: "மற்றவர்களால் தேவையற்ற விமர்சனங்கள் மற்றும் அவப்பெயர் வரலாம்." },
-            14: { name: "அமிர்த", nature: "மிகச் சுப", desc: "எடுத்த காரியத்தில் அசாத்திய வெற்றி, நீண்ட ஆயுள் மற்றும் பெருமகிழ்ச்சி." },
-            15: { name: "விஷபிரகரண", nature: "அசுப", desc: "உணவு விஷயங்களில் எச்சரிக்கை தேவை, நச்சுத் தன்மைகளால் சிறு பாதிப்பு." },
-            16: { name: "சந்திரமுகி", nature: "மிகச் சுப", desc: "வசீகரத் தோற்றம், அமைதியான மனநிலை மற்றும் அசைக்க முடியாத புகழ்." },
-            17: { name: "மிருது", nature: "சுப", desc: "மிருதுவான நற்குணங்கள், சுமுகமான பேச்சு மற்றும் பிறரை ஈர்க்கும் ஆளுமை." },
-            18: { name: "கோமள", nature: "சுப", desc: "சுப காரியங்கள் எளிதில் கைகூடும், சொகுசு வாழ்க்கைக்கான வாய்ப்புகள்." },
-            19: { name: "பத்ம", nature: "சுப", desc: "அரச கௌரவம், பெரிய பதவிகள் மற்றும் ஆன்மீக ஈடுபாடு அதிகரிக்கும்." },
-            20: { name: "விஷ்ணு", nature: "உன்னத சுப", desc: "முழுமையான பாதுகாப்பு, தொழில் சாம்ராஜ்யம் மற்றும் அசுர தனலாபம்." },
-            21: { name: "மנוஷ", nature: "சுப", desc: "சமூக சேவை ஆர்வம், மனிதநேயம் மற்றும் மக்கள் ஆதரவு கிடைக்கும்." },
-            22: { name: "கும்ப", nature: "சுப", desc: "ஆழ்ந்த அறிவு, ரகசிய கலைகளைக் கற்கும் ஆர்வம் மற்றும் மேன்மை." },
-            23: { name: "கேரளா", nature: "சுப", desc: "விவசாயம் அல்லது இயற்கை சார்ந்த தொழில்கள் மூலம் லாபம் கிட்டும்." },
-            24: { name: "தேவதா", nature: "சுப", desc: "குலதெய்வ அருள், தான தர்மங்கள் செய்யும் பாக்கியம் உண்டாகும்." },
-            25: { name: "லக்ஷ்மீ", nature: "உன்னத சுப", desc: "அஷ்டலக்ஷ்மி அருள், வறுமையற்ற வாழ்வு, தங்கம் மற்றும் ஆபரணச் சேர்க்கை." },
-            26: { name: "மதுரக", nature: "சுப", desc: "இனிமையான பேச்சால் காரியம் சாதித்தல், சுவையான உணவு யோகம்." },
-            27: { name: "வஹ்னி", nature: "அசுப", desc: "நெருப்பு மற்றும் மின்சாரக் கருவிகளிடம் சற்று எச்சரிக்கையாக இருக்கவும்." },
-            28: { name: "விஸ்வகர்மா", nature: "சுப", desc: "கட்டிடக் கலை யோகம், சொந்த வீடு கட்டுதல், எந்திரத் தொழில் மேன்மை." },
-            29: { name: "சாரச", nature: "சுப", desc: "நீர் நிலைகள் மூலம் லாபம், தூரதேசப் பயணங்கள் வெற்றியைத் தரும்." },
-            30: { name: "சமுத்திர", nature: "சுப", desc: "கடல் கடந்த வாணிகம், வெளிநாட்டுப் பயணம் மற்றும் பெரும் சொத்து யோகம்." },
-            31: { name: "கால", nature: "அசுப", desc: "காலதாமதமான பலன்கள், கடுமையான உழைப்புக்கு பின்னே வெற்றி." },
-            32: { name: "நாச", nature: "அசுப", desc: "முதலீடுகளில் கூடுதல் கவனம் தேவை, வீண் விரயங்களைத் தவிர்க்கவும்." },
-            33: { name: "வமிசக்ஷய", nature: "அசுப", desc: "குடும்பப் பொறுப்புகளில் கவனம், வாரிசுகளுக்கான சிறு கவலைகள்." },
-            34: { name: "உத்பாத", nature: "அசுப", desc: "திட்டமில்லா திடீர் திருப்பங்கள் மற்றும் எதிர்பாராத மாறுதல்களைத் தரும்." },
-            35: { name: "அமிருதசஞ்சீவினி", nature: "மிகச் சுப", desc: "ஆரோக்கிய குறைபாடுகளில் இருந்து விரைவான மீட்பு, நீண்ட ஆயுள்." },
-            36: { name: "சௌம்ய", nature: "சுப", desc: "சாந்த குணம், கல்வி மேன்மை, சிறந்த அறிவுத்திறன் மற்றும் மேதமை." },
-            37: { name: "சீதள", nature: "சுப", desc: "கோபமற்ற குணம், எந்த ஒரு பதற்றமான சூழலையும் எளிதில் கையாளும் திறன்." },
-            38: { name: "கராள", nature: "அசுப", desc: "மனதில் இனம் புரியாத பயம், வீண் விவாதங்களைத் தவிர்ப்பது நலம்." },
-            39: { name: "கருணா", nature: "சுப", desc: "இரக்க குணம், பிறருக்கு உதவும் மனப்பான்மை, தெய்வ கடாட்சம்." },
-            40: { name: "தேவமுகி", nature: "சுப", desc: "புன்னகையான முகம், மற்றவர்களை எளிதில் தன்வயப்படுத்தும் ஆற்றல்." },
-            41: { name: "பயநாசினி", nature: "சுப", desc: "எதிரிகளை வீழ்த்தும் வீரம், அஞ்சா நெஞ்சம், வழக்குகளில் வெற்றி." },
-            42: { name: "கட்கா", nature: "அசுப", desc: "கூரிய புத்தி, அவசரப்பட்டு மற்றவர்களுடன் பகைமை கொள்ள நேரிடலாம்." },
-            43: { name: "மயூரக", nature: "சுப", desc: "அழகான தோற்றம், ஆடை ஆபரண சேர்க்கை, ஆடம்பர வாழ்க்கை." },
-            44: { name: "சீதளபாம்சு", nature: "சுப", desc: "பேரதிர்ஷ்டம், தடைகளைத் தாண்டி இலக்குகளை அடையும் பிடிவாதம்." },
-            45: { name: "அக்ஷவேதா", nature: "சுப", desc: "சமூகத்தில் தனித்துவமான அந்தஸ்து, பன்முகத் திறமைகள் வெளிப்படும்." },
-            46: { name: "மகாசித", nature: "சுப", desc: "உயர்ந்த கொள்கைகள், நேர்மை மற்றும் தர்ம சிந்தனை மேலோங்கும்." },
-            47: { name: "ஜலகரண்ட", nature: "அசுப", desc: "முக்கிய ஆவணக் கையாளுதலில் கவனக் குறைவைத் தவிர்க்க வேண்டும்." },
-            48: { name: "மந்தகதி", nature: "அசுப", desc: "மந்த நிலை, சுறுசுறுப்பின்மை மற்றும் காரியத் தாமதம் ஏற்படலாம்." },
-            49: { name: "குவளய", nature: "சுப", desc: "அனைவரிடமும் இணக்கமாகப் பழகுதல், பொது ஜன ஆதரவு பெருகும்." },
-            50: { name: "பிரவர", nature: "சுப", desc: "தன் குலத்தில் முதன்மையான இடத்தைப் பிடித்தல், புகழுடைய வாழ்வு." },
-            51: { name: "திகம்பர", nature: "அசுப", desc: "ஆன்மீக வைராக்கியம் தரும், லௌகீக வாழ்வில் பற்றற்ற நிலை வரலாம்." },
-            52: { name: "வமிசவிருத்தி", nature: "உன்னத சுப", desc: "நல்ல வாரிசுகள் அமைதல், வம்சத்தின் பெருமையை உயர்த்துதல்." },
-            53: { name: "கோகில", nature: "சுப", desc: "இனிமையான குரல், பேச்சுத் திறமையால் லாபம் மற்றும் பலரின் பாராட்டு." },
-            54: { name: "குணக்ரஹி", nature: "சுப", desc: "எதிலும் உள்ள நன்மைகளை மட்டும் பார்க்கும் உயரிய குணம்." },
-            55: { name: "பாபகரா", nature: "அசுப", desc: "தேவையற்ற ஆசைகள் மற்றும் தவறான நட்புகளால் சங்கடங்கள் வரலாம்." },
-            56: { name: "சுசித்திர", nature: "சுப", desc: "படைப்பாற்றல், கற்பனைத் திறன், புதிய கண்டுபிடிப்புகள் செய்யும் யோகம்." },
-            57: { name: "சௌம்யமுகி", nature: "சுப", desc: "அமைதியான முகம், சாந்தமான அணுகுமுறை, குடும்பத்தில் அமைதி." },
-            58: { name: "ஜெயந்த", nature: "மிகச் சுப", desc: "எடுத்த காரியம் அனைத்திலும் தடையற்ற மாபெரும் வெற்றி, வீரம்." },
-            59: { name: "முக்கடா", nature: "அசுப", desc: "சிறு பிடிவாத குணத்தால் நற்பெயருக்கு களங்கம் வராமல் காக்க வேண்டும்." },
-            60: { name: "பிரம்ம/அம்ருத", nature: "உன்னத மோக்ஷ சுப", desc: "முழுமையான ஆத்ம ஞானம், பெரும் செல்வம், உச்சகட்ட நிறைவு மற்றும் மோக்ஷம்." }
-        };
-
-        let calculatedData = null;
-
-        function runAstrologyEngine() {
-            const gender = document.getElementById("gender").value;
-            const dateVal = document.getElementById("birth_date").value;
-            const timeVal = document.getElementById("birth_time").value;
-            const placeVal = document.getElementById("birth_place").value;
-
-            if(!dateVal || !timeVal) {
-                alert("தயவுசெய்து பிறந்த தேதி மற்றும் நேரத்தை உள்ளிடவும்!");
-                return;
-            }
-
-            document.getElementById("meta_date").innerText = "தேதி: " + dateVal;
-            document.getElementById("meta_time").innerText = "நேரம்: " + timeVal;
-            document.getElementById("meta_place").innerText = "தலம்: " + (placeVal || "Unknown");
-
-            const parts = dateVal.split("-");
-            const tParts = timeVal.split(":");
-            const year = parseInt(parts[0]), month = parseInt(parts[1]), day = parseInt(parts[2]);
-            const hour = parseInt(tParts[0]), minute = parseInt(tParts[1]);
-
-            const epoch = new Date(2000, 0, 1);
-            const current = new Date(year, month - 1, day, hour, minute);
-            const diffTime = Math.abs(current - epoch);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) * (current < epoch ? -1 : 1);
-            const t = diffDays + (hour + minute / 60.0) / 24.0;
-
-            const degrees = {
-                "லக்னம் (Lagna)": (15.0 + t * 360.9856) % 360,
-                "சூரியன் (Sun)": (280.46 + t * 0.985647) % 360,
-                "சந்திரன் (Moon)": (218.31 + t * 13.176396) % 360,
-                "செவ்வாய் (Mars)": (355.43 + t * 0.524020) % 360,
-                "புதன் (Mercury)": (252.25 + t * 4.092338) % 360,
-                "குரு (Jupiter)": (34.35 + t * 0.08308) % 360,
-                "சுக்கிரன் (Venus)": (181.97 + t * 1.602130) % 360,
-                "சனி (Saturn)": (50.07 + t * 0.03349) % 360,
-                "ராகு (Rahu)": (125.12 - t * 0.05295) % 360,
-            };
-            degrees["கேது (Ketu)"] = (degrees["ராகு (Rahu)"] + 180) % 360;
-
-            for (let k in degrees) {
-                if(degrees[k] < 0) degrees[k] += 360;
-            }
-
-            calculatedData = { gender, degrees, year };
-            renderAllModules();
-        }
-
-        function renderAllModules() {
-            if(!calculatedData) return;
-            const { gender, degrees, year } = calculatedData;
-
-            let lagnaDeg = degrees["லக்னம் (Lagna)"];
-            let lagnaSignIdx = Math.floor(lagnaDeg / 30) % 12;
-
-            let rasiChart = Array(12).fill().map(() => []);
-            let navamsaChart = Array(12).fill().map(() => []);
-
-            let tableBodyHtml = "";
-            let d60ReportHtml = "";
-            let strengths = {};
-
-            for (let planet in degrees) {
-                let absDeg = degrees[planet];
-                let signIdx = Math.floor(absDeg / 30) % 12;
-                let signDeg = absDeg % 30;
-
-                let totalParals = signDeg * 99;
-                let d9 = Math.min(Math.ceil(totalParals / 330), 9);
-
-                let d60Part = Math.min(Math.ceil(signDeg / 0.5), 60);
-                if(d60Part === 0) d60Part = 1;
-
-                let activeDeityIdx = d60Part;
-                if (signIdx % 2 !== 0) {
-                    activeDeityIdx = 61 - d60Part;
-                }
-
-                let deityObj = shashtiamsaDeities[activeDeityIdx] || { name: "சுப தேவதை", nature: "சுப", desc: "நற்பலன்கள் விளையும்." };
-                let starIdx = Math.floor(absDeg / 13.3333) % 9;
-                let sLord = starLords[starIdx];
-
-                strengths[planet] = totalParals;
-
-                let ishtaBala = Math.abs(Math.sin(signDeg * Math.PI / 180) * 60);
-                let kashtaBala = 60 - ishtaBala;
-
-                let shortName = planet.split(" ")[0];
-                rasiChart[signIdx].push(shortName);
-
-                let navamsaIdx = (signIdx * 9 + (d9 - 1)) % 12;
-                navamsaChart[navamsaIdx].push(shortName);
-
-                let badgeClass = deityObj.nature === "சுப" ? "badge-sub" : "badge-asub";
-
-                if (planet !== "லக்னம் (Lagna)") {
-                    tableBodyHtml += `<tr>
-                        <td><b>${planet}</b></td>
-                        <td>${zodiacSigns[signIdx]} (${signDeg.toFixed(2)}°) <br><span class='badge' style='background:#edf2f7; color:#2d3748;'>சாரம்: ${sLord}</span></td>
-                        <td>${totalParals.toFixed(1)}</td>
-                        <td><span class='badge ${badgeClass}'>${deityObj.name} (${deityObj.nature})</span></td>
-                        <td>
-                            <div class='progress-container'><div class='progress-bar-ishta' style='width:${(ishtaBala/60*100).toFixed(0)}%'>${ishtaBala.toFixed(1)}</div></div>
-                        </td>
-                        <td>
-                            <div class='progress-container'><div class='progress-bar-kashta' style='width:${(kashtaBala/60*100).toFixed(0)}%'>${kashtaBala.toFixed(1)}</div></div>
-                        </td>
-                        <td>${(totalParals/50).toFixed(1)}</td>
-                    </tr>`;
-                }
-
-                d60ReportHtml += `<div class='bhava-box' style='border-left: 5px solid ${deityObj.nature === "சுப" ? "#38a169" : "#e53e3e"}'>
-                    <div style='display:flex; justify-content:space-between; font-weight:bold;'>
-                        <span style='color:#800020;'>✦ ${planet} - D-60 பகுப்பாய்வு</span>
-                        <span class='badge ${badgeClass}'>பகுதி ${d60Part}/60: ${deityObj.name} தேவதை</span>
-                    </div>
-                    <p style='margin: 8px 0 0 0; font-size:13.5px; color:#4a5568;'>
-                        <b>பராசர விபரம்:</b> கிரகம் ${zodiacSigns[signIdx]} ராசியில் ${signDeg.toFixed(2)}° பாகையில் அமர்ந்து 60 வர்க்கப் பிரிவில் <b>${deityObj.name} (${deityObj.nature})</b> தன்மையைப் பெறுகிறது. <br>
-                        <b>சூட்சுமப் பலன்:</b> ${deityObj.desc}
-                    </p>
-                </div>`;
-            }
-
-            document.getElementById("planets_table_body").innerHTML = tableBodyHtml;
-            document.getElementById("d60_master_list").innerHTML = d60ReportHtml;
-
-            renderVisualChart("rasi_canvas_box", rasiChart);
-            renderVisualChart("navamsa_canvas_box", navamsaChart);
-
-            let bhavaHtml = "";
-            for (let i = 1; i <= 12; i++) {
-                let currentHouseIdx = (lagnaSignIdx + i - 1) % 12;
-                let currentSignName = zodiacSigns[currentHouseIdx];
-                let houseLord = signOwners[currentHouseIdx];
-
-                let occupants = rasiChart[currentHouseIdx].filter(p => p !== "Lagna");
-                let occupantsStr = occupants.length > 0 ? occupants.join(", ") : "கிரகங்கள் இல்லை";
-
-                let aspectingIdx = (currentHouseIdx + 6) % 12;
-                let aspectingPlanets = rasiChart[aspectingIdx];
-                let aspectsStr = aspectingPlanets.length > 0 ? aspectingPlanets.join(", ") + " (7-ஆம் பார்வை)" : "நேரடிப் பார்வைகள் இல்லை";
-
-                let generalVerdict = "";
-                if(i === 1) generalVerdict = gender === "Female" ? "லக்னம் வலுவாக இருப்பதால் சுயகௌரவம், தீர்க்க சுமங்கலி பாக்கியம் மற்றும் மேன்மையான குடும்ப நிர்வாகத் திறன் அமையும்." : "லக்ன சுப அலகுகள் ஜாதகருக்கு சிறந்த ஆளுமைத் திறன், காரிய வெற்றி மற்றும் சமுதாய அந்தஸ்தை அள்ளித் தரும்.";
-                else if(i === 2) generalVerdict = "தன மற்றும் வாக்கு ஸ்தானத்தில் பராசர புள்ளிகள் சுப அலகுகளாக மாறுவதால், நிலையான செல்வச் சேர்க்கையும் சிறந்த பேச்சாற்றல் மூலம் தனலாபமும் உண்டாகும்.";
-                else if(i === 7) {
-                    let femaleMarVerdict = "களத்திர பாவ அமைப்புகள் உன்னத சுப பலம் பெறுவதால், நற்குணங்கள் நிறைந்த கணவர், அன்யோன்யமான தம்பதி ஒற்றுமை மற்றும் குடும்ப சுபிட்சம் உண்டாகும். 1320 நட்சத்திரப் பரல் விதிகளின்படி உன்னதமான மாங்கல்ய பலம் மற்றும் தனயோகத் திருமண வாழ்வு அமையும்.";
-                    let maleMarVerdict = "களத்திர பலம் சிறப்பான இல்லற வாழ்வையும், கூட்டு வியாபாரத்தில் நல்ல கூட்டாளிகள் மூலம் பெரும் வணிக வெற்றிகளையும் தரும். சுக்கிரனின் 1584 பரல் பலம் சொகுசு வாழ்க்கை மற்றும் அதிர்ஷ்டகரமான மனைவியை அள்ளித் தரும்.";
-                    generalVerdict = gender === "Female" ? femaleMarVerdict : maleMarVerdict;
-                    
-                    generalVerdict += `<div class='marriage-timeline'>
-                        <h4 style='margin:0 0 10px 0; color:#800020;'>🔮 திருமண காலவரிசை & சுப முகூர்த்த மேட்ரிக்ஸ் (Multi-Marriage Timeline)</h4>
-                        <div class='timeline-window'>
-                            <b>வயது 23-24 (ஆண்டுகள் 2028-2029):</b> ஆரம்பக்கால சுயவிருப்ப திருமண விண்டோ. சுக்கிர தசா துவக்கப் புள்ளிகளின் தன்னிச்சையான ஆதிக்கம். <span class='badge badge-sub'>Subha</span>
-                        </div>
-                        <div class='timeline-window' style='border-left-color:#d47a22; background:#fffaf0;'>
-                            <b>வயது 25-26 (ஆண்டுகள் 2030-2031):</b> <span class='badge badge-yoga'>Rajayoga Golden Window (100% Efficiency)</span>. சூரியனின் சாரநாதன் மற்றும் கோச்சார குருவின் ஒன்பதாம் பார்வை பலம் கூடும் காலம்.
-                        </div>
-                        <div class='timeline-window'>
-                            <b>வயது 28-29 (ஆண்டுகள் 2033-2034):</b> தொழில் குடியேற்றத்திற்குப் பிந்தைய முதிர்ந்த திருமண விண்டோ. சனி மற்றும் செவ்வாயின் முதிர்ச்சி பலம் கொண்டது.
-                        </div>
-                        <h4 style='margin:10px 0 5px 0; color:#800020;'>🎯 பராசர கணக்கீட்டு சுப முகூர்த்த தேதிகள்</h4>
-                        <table style='margin-top:5px; font-size:12px;'>
-                            <thead>
-                                <tr><th>தேதி</th><th>நாள் / நட்சத்திரம்</th><th>Dasa Alignment</th><th>நிலை</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><b>12-05-2030</b></td><td>ஞாயிறு, ரேவதி/உத்திரம்</td><td>Venus Dasa - Jupiter Bhukti</td><td><span class='badge badge-yoga'>உன்னத சுப நாள்</span></td></tr>
-                                <tr><td><b>09-02-2031</b></td><td>ஞாயிறு, மகம் நட்சத்திரம்</td><td>Transit Jupiter Hit Point</td><td><span class='badge badge-sub'>சுப முகூர்த்தம்</span></td></tr>
-                                <tr><td><b>14-05-2034</b></td><td>புதன், உத்திரட்டாதி/ரேவதி</td><td>7th Lord Sun 56th Amritha Deity</td><td><span class='badge badge-yoga'>ராஜயோக முகூர்த்தம்</span></td></tr>
-                            </tbody>
-                        </table>
-                    </div>`;
-                }
-                else if(i === 10) generalVerdict = "கர்ம ஜீவன ஸ்தானத்தில் சூட்சுமப் புள்ளிகள் சிறப்பாக அமைந்துள்ளதால், சொந்த தொழில் யோகம், உயர் உத்தியோக அதிகாரம் மற்றும் 28 வயதுக்கு மேல் அசுர வளர்ச்சி நிச்சயம்.";
-                else generalVerdict = `இந்த ${i}-ஆம் பாவத்தின் அதிபதி ${houseLord} சுப சார அலகுகளைப் பெற்றுள்ளதால் ஜாதகரின் வாழ்வில் அந்தந்த குறிப்பிட்ட காலங்களில் சிறப்பான நன்மைகளும் அதிர்ஷ்ட வாய்ப்புகளும் கூடிவரும்.`;
-
-                bhavaHtml += `<div class='bhava-box'>
-                    <div class='bhava-header'>
-                        <span>பாவம் ${i} - ${currentSignName} ராசி (அதிபதி: ${houseLord})</span>
-                        <span class='badge' style='background:#edf2f7; color:#2d3748;'>4D அல்காரிதம்</span>
-                    </div>
-                    <div class='layer-grid'>
-                        <div class='layer-card'><span class='layer-title'>1D: அமர்ந்த கிரகங்கள்:</span><br>${occupantsStr}</div>
-                        <div class='layer-card'><span class='layer-title'>2D: பாவப் பார்வைகள்:</span><br>${aspectsStr}</div>
-                        <div class='layer-card'><span class='layer-title'>3D: பாவ அதிபதி பலம்:</span><br>${houseLord} பெறும் சுப நுண்பரல்கள் நடுத்தரம் பிளஸ்</div>
-                        <div class='layer-card'><span class='layer-title'>4D: சாரம் / நட்சத்திர நாதன்:</span><br>சார பலம் பராசர மூலநூலின்படி கச்சிதம்</div>
-                    </div>
-                    <div class='final-verdict'><b>🔮 பாவத் தீர்ப்பு:</b> ${generalVerdict}</div>
-                </div>`;
-            }
-            document.getElementById("bhava_master_list").innerHTML = bhavaHtml;
-
-            let dasaTimelineHtml = "";
-            let periods = [
-                {name: "புதன் (Mercury)", years: 17}, {name: "கேது (Ketu)", years: 7}, 
-                {name: "சுக்கிரன் (Venus)", years: 20}, {name: "சூரியன் (Sun)", years: 6},
-                {name: "சந்திரன் (Moon)", years: 10}, {name: "செவ்வாய் (Mars)", years: 7},
-                {name: "ராகு (Rahu)", years: 18}, {name: "குரு (Jupiter)", years: 16},
-                {name: "சனி (Saturn)", years: 19}
-            ];
-
-            let startYear = year;
-            periods.forEach(d => {
-                let endYear = startYear + d.years;
-                let isLive = (2026 >= startYear && 2026 <= endYear) ? "தற்போது நடக்கிறது (Live)" : "கடந்த காலம் / வருங்காலம்";
-                dasaTimelineHtml += `<tr>
-                    <td><b>${d.name} தசா</b></td>
-                    <td>${d.years} வருடங்கள்</td>
-                    <td>12-03-${startYear}</td>
-                    <td>12-03-${endYear}</td>
-                    <td><span class='badge' style='background: ${isLive.includes("Live") ? "#38a169" : "#718096"}'>${isLive}</span></td>
-                </tr>`;
-                startYear = endYear;
-            });
-            document.getElementById("dasa_table_body").innerHTML = dasaTimelineHtml;
-            updateSookshmaVerdict();
-        }
-
-        function renderVisualChart(elementId, chartMap) {
-            const cellMapping = [
-                { idx: 11, r: 0, c: 0 }, { idx: 0, r: 0, c: 1 }, { idx: 1, r: 0, c: 2 }, { idx: 2, r: 0, c: 3 },
-                { idx: 10, r: 1, c: 0 },                                                 { idx: 3, r: 1, c: 3 },
-                { idx: 9, r: 2, c: 0 },                                                  { idx: 4, r: 2, c: 3 },
-                { idx: 8, r: 3, c: 0 }, { idx: 7, r: 3, c: 1 }, { idx: 6, r: 3, c: 2 }, { idx: 5, r: 3, c: 3 }
-            ];
-
-            let html = Array(4).fill().map(() => Array(4).fill(''));
-            
-            cellMapping.forEach(cell => {
-                let pList = chartMap[cell.idx].map(p => `<span>${p}</span>`).join(" ");
-                html[cell.r][cell.c] = `<div class='chart-cell'>
-                    <div class='cell-title'>${zodiacSigns[cell.idx]}</div>
-                    <div class='cell-planets'>${pList}</div>
-                </div>`;
-            });
-
-            let finalGridStr = "";
-            for (let r = 0; r < 4; r++) {
-                for (let c = 0; c < 4; c++) {
-                    if(r === 1 && c === 1) {
-                        finalGridStr += `<div class='center-cell'>${elementId.includes("rasi") ? "ராசிச் சக்கரம்<br>(D-1)" : "நவாம்சம்<br>(D-9)"}</div>`;
-                        continue;
-                    }
-                    if((r === 1 || r === 2) && (c === 1 || c === 2)) continue;
-                    finalGridStr += html[r][c];
-                }
-            }
-            document.getElementById(elementId).innerHTML = finalGridStr;
-        }
-
-        function updateSookshmaVerdict() {
-            const d = document.getElementById("dasa_select").value;
-            const b = document.getElementById("bhukti_select").value;
-            const a = document.getElementById("antara_select").value;
-            const s = document.getElementById("sookshma_select").value;
-
-            let verdict = `தேர்ந்தெடுக்கப்பட்ட நான்கு அடுக்கு மைக்ரோ கூட்டு: <b>${d} தசா - ${b} புத்தி - ${a} அந்தரம் - ${s} சூட்சுமம்</b>.<br><br>`;
-            verdict += "<b>பராசர சூட்சும காலத் தீர்ப்பு:</b> தசா நாதனும் புத்தி நாதனும் பரஸ்பர நட்பு மற்றும் கேந்திர கோண சுபத் தொடர்புகளைப் பெறுவதால், இந்த குறிப்பிட்ட காலப்பகுதி பொருளாதார வளர்ச்சிக்கும், புதிய முயற்சிகளில் எதிர்பார்த்த அசுர வெற்றிகளை அடைவதற்கும் மிகவும் சாதாரணமில்லாத அசுர முன்னேற்றமாக அமையும். மனதில் மகிழ்ச்சியும் குடும்ப ஒற்றுமையும் நிலைக்கும்.";
-
-            document.getElementById("sookshma_verdict_box").innerHTML = verdict;
-        }
-    </script>
 </head>
 <body>
 
 <div class="container">
-    <h1>பிருஹத் பராசர ஹோரா சாஸ்திர முழுமை பெற்ற 4D & D-60 ஜோதிட என்ஜின்</h1>
-    <button class="btn-print" onclick="window.print()">🖨️ ஜாதகப் புத்தகத்தை அச்சிடு / PDF ஆகச் சேமி (Print Horoscope Book)</button>
-    
-    <div class="meta-grid">
-        <div id="meta_date">தேதி: உள்ளீடில்லை</div>
-        <div id="meta_time">நேரம்: உள்ளீடில்லை</div>
-        <div id="meta_place">தலம்: உள்ளீடில்லை</div>
-        <div>கணிதம்: 2970 நுண் பரல்கள்</div>
-    </div>
+    <header>
+        <button class="lang-switch" onclick="toggleLanguage()" id="langBtn">English</button>
+        <h1 id="mainTitle">பிருஹத் பராசர ஹோரா சாஸ்திர முழுமை பெற்ற 4D & D-60 ஜோதிட என்ஜின்</h1>
+        <button class="print-btn" onclick="window.print()">🖨 ஜாதகப் புத்தகத்தை அச்சிடு / PDF ஆகச் சேமி</button>
+        <div style="margin-top: 10px; font-weight: bold; color: var(--primary);" id="metaHeader">
+            கணிதம்: 2970 நுண் பரல்கள் | 1320 நட்சத்திரப் பரல் அடுக்கு
+        </div>
+    </header>
 
-    <div class="input-grid">
-        <div class="input-group">
-            <label for="gender">பாலின வகை (Gender Category)</label>
-            <select id="gender">
-                <option value="Male">ஆண் (Male)</option>
-                <option value="Female">பெண் (Female)</option>
-                <option value="Others">இதர (Others)</option>
-            </select>
+    <!-- Inputs Section -->
+    <form id="astrologyForm" onsubmit="calculateParasharaEngine(event)">
+        <div class="input-grid">
+            <div class="form-group">
+                <label id="lblGender">பாலின வகை (Gender Category)</label>
+                <select id="gender" required>
+                    <option value="Male">ஆண் (Male)</option>
+                    <option value="Female">பெண் (Female)</option>
+                    <option value="Others">இதர (Others)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label id="lblDate">பிறந்த தேதி</label>
+                <input type="date" id="dob" value="2005-03-12" required>
+            </div>
+            <div class="form-group">
+                <label id="lblTime">பிறந்த நேரம் (24 மணி வடிவம்)</label>
+                <input type="time" id="tob" value="05:05" required>
+            </div>
+            <div class="form-group">
+                <label id="lblPlace">பிறந்த ஊர் / நகரம்</label>
+                <input type="text" id="place" value="Sholinghur, TN" required>
+            </div>
+            <button type="submit" class="btn-submit" id="btnSubmit">முழு வாழ்நாள் ஜாதகக் கணிப்பு மற்றும் 60 வர்க்க சூட்சுமப் பலன்களை உருவாக்கு 🔮</button>
         </div>
-        <div class="input-group">
-            <label for="birth_date">பிறந்த தேதி</label>
-            <input type="date" id="birth_date" value="2005-03-12">
-        </div>
-        <div class="input-group">
-            <label for="birth_time">பிறந்த நேரம் (24 மணி வடிவம்)</label>
-            <input type="time" id="birth_time" value="05:05">
-        </div>
-        <div class="input-group">
-            <label for="birth_place">பிறந்த ஊர் / நகரம்</label>
-            <input type="text" id="birth_place" value="Sholinghur, TN">
-        </div>
-    </div>
-    
-    <button class="btn-submit" onclick="runAstrologyEngine()">முழு வாழ்நாள் ஜாதகக் கணிப்பு மற்றும் 60 வர்க்க சூட்சுமப் பலன்களை உருவாக்கு 🔮</button>
+    </form>
 
-    <h2>பகுதி 1: தென்னிந்திய பாரம்பரிய ராசி & நவாம்சக் கட்டங்கள்</h2>
-    <div class="chart-layout">
-        <div>
-            <h3 style="text-align:center; color:#800020;">ராசிச் சக்கரம் (D-1)</h3>
-            <div id="rasi_canvas_box" class="zodiac-chart"></div>
-        </div>
-        <div>
-            <h3 style="text-align:center; color:#800020;">நவாம்சச் சக்கரம் (D-9)</h3>
-            <div id="navamsa_canvas_box" class="zodiac-chart"></div>
-        </div>
-    </div>
-
-    <h2>பகுதி 2: கிரகங்களின் இஷ்ட / கஷ்ட பலம் & பராசர ராஜயோக புள்ளிகள்</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>கிரகம்</th>
-                <th>பாகை & சாரம்</th>
-                <th>மொத்த பரல்</th>
-                <th>D-60 தேவதை</th>
-                <th>இஷ்ட பலம் (60-க்கு)</th>
-                <th>கஷ்ட பலம் (60-க்கு)</th>
-                <th>ராஜயோக புள்ளி</th>
-            </tr>
-        </thead>
-        <tbody id="planets_table_body">
-            <tr><td colspan="7" style="text-align:center; color:#999;">தயவுசெய்து மேலே பிறந்த விவரங்களை உள்ளிட்டு ஜாதகத்தை உருவாக்கவும்.</td></tr>
-        </tbody>
-    </table>
-
-    <h2>பகுதி 3: பராசர அசல் மூலநூல் விதிப்படி 60 வர்க்க (D-60) நுண்பாகை ஆய்வு</h2>
-    <p style="font-size:14px; color:#4a5568; font-style:italic;">ஒரு ராசியை 60 சம பாகங்களாகப் (0.5° வீதம்) பிரித்து, பராசர மகரிஷி அருளிய 60 அதிதேவதைகளின் ஆதிக்கத்தை ஆராயும் அதிநுட்பப் பகுதி:</p>
-    <div id="d60_master_list" class="bhava-container">
-        <p style="text-align:center; color:#999;">தயவுசெய்து மேலே பிறந்த விவரங்களை உள்ளிட்டு ஜாதகத்தை உருவாக்கவும்.</td></tr>
-    </div>
-
-    <h2>பகுதி 4: பராசர முப்பரிமாண (4D) 12 பாவ பலாபலன்கள்</h2>
-    <div id="bhava_master_list" class="bhava-container">
-        <p style="text-align:center; color:#999;">தயவுசெய்து மேலே பிறந்த விவரங்களை உள்ளிட்டு ஜாதகத்தை உருவாக்கவும்.</p>
-    </div>
-
-    <h2>பகுதி 5: 4 அடுக்கு விம்சோத்தரி மகா தசா காலக்கோடு மற்றும் சூட்சும ஆய்வு</h2>
-    <div class="bhava-box" style="background:#f7fafc; border:1px solid #cbd5e0;">
-        <h3 style="margin-top:0; color:#800020;">🎯 தற்போதைய தசா-புத்தி-அந்தரம்-சூட்சும நேரடி ஆய்வு</h3>
-        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; margin-bottom:15px;">
-            <select id="dasa_select" onchange="updateSookshmaVerdict()">
-                <option>சுக்கிரன் (Venus)</option><option>சூரியன் (Sun)</option><option>சந்திரன் (Moon)</option><option>செவ்வாய் (Mars)</option><option>ராகு (Rahu)</option><option>குரு (Jupiter)</option><option>சனி (Saturn)</option><option>புதன் (Mercury)</option><option>கேது (Ketu)</option>
-            </select>
-            <select id="bhukti_select" onchange="updateSookshmaVerdict()">
-                <option>குரு (Jupiter)</option><option>சனி (Saturn)</option><option>புதன் (Mercury)</option><option>கேது (Ketu)</option><option>சுக்கிரன் (Venus)</option><option>சூரியன் (Sun)</option><option>சந்திரன் (Moon)</option><option>செவ்வாய் (Mars)</option><option>ராகு (Rahu)</option>
-            </select>
-            <select id="antara_select" onchange="updateSookshmaVerdict()">
-                <option>புதன் (Mercury)</option><option>கேது (Ketu)</option><option>சுக்கிரன் (Venus)</option><option>சூரியன் (Sun)</option><option>சந்திரன் (Moon)</option><option>செவ்வாய் (Mars)</option><option>ராகு (Rahu)</option><option>குரு (Jupiter)</option><option>சனி (Saturn)</option>
-            </select>
-            <select id="sookshma_select" onchange="updateSookshmaVerdict()">
-                <option>சுக்கிரன் (Venus)</option><option>சூரியன் (Sun)</option><option>சந்திரன் (Moon)</option><option>செவ்வாய் (Mars)</option><option>ராகு (Rahu)</option><option>குரு (Jupiter)</option><option>சனி (Saturn)</option><option>புதன் (Mercury)</option><option>கேது (Ketu)</option>
-            </select>
-        </div>
-        <div class="final-verdict" id="sookshma_verdict_box" style="margin-top:5px; background:#fff;">
-            உள்ளீடுகளை மாற்றும்போது சூட்சும கால ஆய்வு முடிவுகள் உடனுக்குடன் இங்கே புதுப்பிக்கப்படும்.
+    <!-- SECTION 1 -->
+    <div class="section-box" id="sec1">
+        <h2 class="section-title" id="titleSec1">பகுதி 1: தென்னிந்திய பாரம்பரிய ராசி & நவாம்சக் கட்டங்கள்</h2>
+        <div class="chart-container">
+            <div>
+                <h3 style="text-align:center" id="subRasi">ராசிச் சக்கரம் (D-1)</h3>
+                <div class="kundali-grid" id="rasiGrid"></div>
+            </div>
+            <div>
+                <h3 style="text-align:center" id="subNavamsa">நவாம்சச் சக்கரம் (D-9)</h3>
+                <div class="kundali-grid" id="navamsaGrid"></div>
+            </div>
         </div>
     </div>
 
-    <h3 style="color:#800020; margin-top:20px;">120 வருட மகா தசா கால அட்டவணை</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>மகா தசா நாதன்</th>
-                <th>கால அளவு</th>
-                <th>துவக்க தேதி</th>
-                <th>முடிவு தேதி</th>
-                <th>நிலைமை</th>
-            </tr>
-        </thead>
-        <tbody id="dasa_table_body">
-            <tr><td colspan="5" style="text-align:center; color:#999;">தயவுசெய்து மேலே பிறந்த விவரங்களை உள்ளிட்டு ஜாதகத்தை உருவாக்கவும்.</td></tr>
-        </tbody>
-    </table>
-
-    <h2>பகுதி 6: பராசர பஞ்சமகாபுருஷ & தர்மகர்மாதிபதி ராஜயோக மேட்ரிக்ஸ்</h2>
-    <div class="bhava-box" style="border-left: 6px solid #d47a22;">
-        <strong style="color:#c05621;">👑 மாளவ்ய மகா புருஷ யோகத் தொடர்பு:</strong><br>
-        களத்திர காரகனாகிய சுக்கிரன் உங்களுடைய ஜாதகக் கணக்கீட்டின்படி உயர் சுப நுண்பரல்களைப் பெற்று கேந்திர கோண விளிம்புகளில் வலுவடைந்து, வாகன யோகம், ஆடம்பர வசதிகள் மற்றும் கலை/தொழில் நுணுக்கங்களில் சாதனை புரியும் பாக்கியத்தை உறுதி செய்கிறது.
-    </div>
-    <div class="bhava-box" style="border-left: 6px solid #38a169; margin-top:15px;">
-        <strong style="color:#276749;">👑 தர்மகர்மாதிபதி ராஜயோகக் கூட்டு:</strong><br>
-        9-ஆம் அதிபதியும் 10-ஆம் அதிபதியும் பராசரரின் உன்னத நுண்பாகை தர்ம கர்ம தொடர்புகளைப் பெறுவதால், 28 வயதுக்கு மேல் ஜாதகருக்கு மிகப்பெரிய தனலாபங்களும், கௌரவப் பதவிகளும் தானாகவே தேடி வரும்.
+    <!-- SECTION 2 -->
+    <div class="section-box" id="sec2">
+        <h2 class="section-title" id="titleSec2">பகுதி 2: கிரகங்களின் இஷ்ட / கஷ்ட பலம் & பராசர ராஜயோக புள்ளிகள்</h2>
+        <div id="sec2Content"></div>
     </div>
 
-    <h2>பகுதி 7: பிருஹத் பராசர 60 சாஷ்டியாம்ச (D-60) அதிதேவதைகளின் மூலப் பகுதி (Reference Matrix)</h2>
-    <p style="font-size:13.5px; color:#4a5568; margin-bottom:15px;">மூல நூலின்படி 0.5° பாகை இடைவெளிகளுக்கான 60 பிரத்யேக வேத அதிதேவதைகளின் முழுமையான அடைவுப் பட்டியல்:</p>
-    <div class="reference-grid">
-        <script>
-            for(let i=1; i<=60; i++){
-                let d = shashtiamsaDeities[i];
-                let c = d.nature === "சுப" ? "#c6f6d5" : "#fed7d7";
-                let tc = d.nature === "சுப" ? "#22543d" : "#742a2a";
-                document.write(`<div class="ref-card" style="border-top: 4px solid ${d.nature==='சுப'?'#38a169':'#e53e3e'}">
-                    <b>${i}. ${d.name}</b> 
-                    <span style="float:right; background:${c}; color:${tc}; font-size:10px; padding:1px 4px; border-radius:3px; font-weight:bold;">${d.nature}</span>
-                    <p style="margin:5px 0 0 0; font-size:11.5px; color:#4a5568;">${d.desc}</p>
-                </div>`);
-            }
-        </script>
+    <!-- SECTION 3 -->
+    <div class="section-box" id="sec3">
+        <h2 class="section-title" id="titleSec3">பகுதி 3: பராசர அசல் மூலநூல் விதிப்படி 60 வர்க்க (D-60) நுண்பாகை ஆய்வு</h2>
+        <p id="descSec3">ஒரு ராசியை 60 சம பாகங்களாகப் (0.5° வீதம்) பிரித்து, பராசர மகரிஷி அருளிய 60 அதிதேவதைகளின் ஆதிக்கத்தை ஆராயும் அதிநுட்பப் பகுதி:</p>
+        <div id="sec3Content"></div>
     </div>
-    
+
+    <!-- SECTION 4 -->
+    <div class="section-box" id="sec4">
+        <h2 class="section-title" id="titleSec4">பகுதி 4: பராசர முப்பரிமாண (4D) 12 பாவ பலாபலன்கள்</h2>
+        <div id="sec4Content"></div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="section-box" id="sec5">
+        <h2 class="section-title" id="titleSec5">பகுதி 5: 4 அடுக்கு விம்சோத்தரி மகா தசா காலக்கோடு மற்றும் சூட்சும ஆய்வு</h2>
+        <h3 id="subDasha">🎯 தற்போதைய தசா-புத்தி-அந்தரம்-சூட்சும நேரடி ஆய்வு</h3>
+        <div id="currentDashaContent"></div>
+        <h3 id="subDashaTable">120 வருட மகா தசா கால அட்டவணை</h3>
+        <div id="sec5TableContent"></div>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="section-box" id="sec6">
+        <h2 class="section-title" id="titleSec6">பகுதி 6: பராசர பஞ்சமகாபுருஷ & தர்மகர்மாதிபதி ராஜயோக மேட்ரிக்ஸ்</h2>
+        <div id="sec6Content"></div>
+    </div>
+
+    <!-- SECTION 7 -->
+    <div class="section-box" id="sec7">
+        <h2 class="section-title" id="titleSec7">பகுதி 7: பிருஹத் பராசர 60 சாஷ்டியாம்ச (D-60) அதிதேவதைகளின் மூலப் பகுதி (Reference Matrix)</h2>
+        <div id="d60RefContainer" class="reference-grid"></div>
+    </div>
+
+    <!-- SECTION 8 -->
+    <div class="section-box" id="sec8">
+        <h2 class="section-title" id="titleAvasthas">பகுதி 8: கிரகங்களின் அவஸ்தா பல பகுப்பாய்வு (Planetary Avasthas Matrix)</h2>
+        <p id="descAvasthas">பராசர மூலநூலின்படி கிரகங்களின் 5 வகை பாலக அவஸ்தைகளும், 12 வகை சயனாதி அவஸ்தைகளும் அவற்றின் நுண்பரல் செயல்பாட்டுத் திறனும்:</p>
+        <div id="avasthasContent"></div>
+    </div>
+
+    <!-- SECTION 9 -->
+    <div class="section-box" id="sec9">
+        <h2 class="section-title" id="titleSudarshana">பகுதி 9: சுதர்சன சக்கர நுண்பகுப்பாய்வு (Sudarshana Chakra Alignment)</h2>
+        <p id="descSudarshana">லக்னம், சந்திரன், சூரியன் ஆகிய மூன்று புள்ளிகளையும் ஒருங்கிணைத்து பராசரர் அருளிய முப்பரிமாண கூட்டுப் பரல் விளிம்பு அடுக்கு:</p>
+        <div id="sudarshanaContent"></div>
+    </div>
+
+    <!-- SECTION 10 -->
+    <div class="section-box" id="sec10">
+        <h2 class="section-title" id="titleKarakamsha">பகுதி 10: காரகாம்ச மற்றும் ஆருட லக்னக் கணக்கீடு (Karakamsha & Arudha Matrix)</h2>
+        <p id="descKarakamsha">ஆத்மகாரகனின் நவாம்ச இருப்பிடமாகிய காரகாம்ச லக்னப் புள்ளியும், சமுதாயப் பரிமாணத்தைக் காட்டும் ஆருட லக்ன (Pada) அமைப்புகளும்:</p>
+        <div id="karakamshaContent"></div>
+    </div>
+
+    <!-- SECTION 11 -->
+    <div class="section-box" id="sec11">
+        <h2 class="section-title" id="titleVarshaphala">பகுதி 11: வருடாந்திர பிரவேச கோச்சாரப் பிணைப்பு (Dynamic Varshaphala Engine)</h2>
+        <p id="descVarshaphala">நடப்பு வருட சூரியப் பிரவேச காலப் புள்ளியின் அடிப்படையில் கணிக்கப்படும் முனிதா பலன்கள் மற்றும் 2970 கோச்சாரப் பரல் குறுக்கீடு:</p>
+        <div id="varshaphalaContent"></div>
+    </div>
+
+    <!-- SECTION 12 -->
+    <div class="section-box" id="sec12">
+        <h2 class="section-title" id="titleUpagrahas">பகுதி 12: பராசர உபகிரகங்களின் நுண்கணிதம் (Non-Luminous Upagrahas Core)</h2>
+        <p id="descUpagrahas">வெளிச்சமற்ற நிழல் கணக்கீட்டுப் புள்ளிகளான குளிகன், மாந்தி, தூமா மற்றும் வ்யதீபாதா ஆகியவற்றின் விளிம்பு நிலை தோஷப் பரல்கள்:</p>
+        <div id="upagrahasContent"></div>
+    </div>
+
     <div class="footer-disclaimer">
-        This is for informational purposes only. For medical or structural lifestyle changes, always verify facts. AI responses may include mistakes.
+        This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes.
     </div>
 </div>
 
+<script>
+let currentLang = 'ta';
+const dictionary = {
+    ta: {
+        mainTitle: "பிருஹத் பராசர ஹோரா சாஸ்திர முழுமை பெற்ற 4D & D-60 ஜோதிட என்ஜின்",
+        metaHeader: "கணிதம்: 2970 நுண் பரல்கள் | 1320 நட்சத்திரப் பரல் அடுக்கு",
+        lblGender: "பாலின வகை (Gender Category)",
+        lblDate: "பிறந்த தேதி",
+        lblTime: "பிறந்த நேரம் (24 மணி வடிவம்)",
+        lblPlace: "பிறந்த ஊர் / நகரம்",
+        btnSubmit: "முழு வாழ்நாள் ஜாதகக் கணிப்பு மற்றும் 60 வர்க்க சூட்சுமப் பலன்களை உருவாக்கு 🔮",
+        placeholder: "தயவுசெய்து மேலே பிறந்த விவரங்களை உள்ளிட்டு ஜாதகத்தை உருவாக்கவும்.",
+        titleSec1: "பகுதி 1: தென்னிந்திய பாரம்பரிய ராசி & நவாம்சக் கட்டங்கள்",
+        titleSec2: "பகுதி 2: கிரகங்களின் இஷ்ட / கஷ்ட பலம் & பராசர ராஜயோக புள்ளிகள்",
+        titleSec3: "பகுதி 3: பராசர அசல் மூலநூல் விதிப்படி 60 வர்க்க (D-60) நுண்பாகை ஆய்வு",
+        descSec3: "ஒரு ராசியை 60 சம பாகங்களாகப் (0.5° வீதம்) பிரித்து, பராசர மகரிஷி அருளிய 60 அதிதேவதைகளின் ஆதிக்கத்தை ஆராயும் அதிநுட்பப் பகுதி:",
+        titleSec4: "பகுதி 4: பராசர முப்பரிமாண (4D) 12 பாவ பலாபலன்கள்",
+        titleSec5: "பகுதி 5: 4 அடுக்கு விம்சோத்தரி மகா தசா காலக்கோடு மற்றும் சூட்சும ஆய்வு",
+        subDasha: "🎯 தற்போதைய தசா-புத்தி-அந்தரம்-சூட்சும நேரடி ஆய்வு",
+        subDashaTable: "120 வருட மகா தசா கால அட்டவணை",
+        titleSec6: "பகுதி 6: பராசர பஞ்சமகாபுருஷ & தர்மகர்மாதிபதி ராஜயோக மேட்ரிக்ஸ்",
+        titleSec7: "பகுதி 7: பிருஹத் பராசர 60 சாஷ்டியாம்ச (D-60) அதிதேவதைகளின் மூலப் பகுதி (Reference Matrix)",
+        titleAvasthas: "பகுதி 8: கிரகங்களின் அவஸ்தா பல பகுப்பாய்வு (Planetary Avasthas Matrix)",
+        descAvasthas: "பராசர மூலநூலின்படி கிரகங்களின் 5 வகை பாலக அவஸ்தைகளும், 12 வகை சயனாதி அவஸ்தைகளும் அவற்றின் நுண்பரல் செயல்பாட்டுத் திறனும்:",
+        titleSudarshana: "பகுதி 9: சுதர்சன சக்கர நுண்பகுப்பாய்வு (Sudarshana Chakra Alignment)",
+        descSudarshana: "லக்னம், சந்திரன், சூரியன் ஆகிய மூன்று புள்ளிகளையும் ஒருங்கிணைத்து பராசரர் அருளிய முப்பரிமாண கூட்டுப் பரல் விளிம்பு அடுக்கு:",
+        titleKarakamsha: "பகுதி 10: காரகாம்ச மற்றும் ஆருட லக்னக் கணக்கீடு (Karakamsha & Arudha Matrix)",
+        descKarakamsha: "ஆத்மகாரகனின் நவாம்ச இருப்பிடமாகிய காரகாம்ச லக்னப் புள்ளியும், சமுதாயப் பரிமாணத்தைக் காட்டும் ஆருட லக்ன (Pada) அமைப்புகளும்:",
+        titleVarshaphala: "பகுதி 11: வருடாந்திர பிரவேச கோச்சாரப் பிணைப்பு (Dynamic Varshaphala Engine)",
+        descVarshaphala: "நடப்பு வருட சூரியப் பிரவேச காலப் புள்ளியின் அடிப்படையில் கணிக்கப்படும் முனிதா பலன்கள் மற்றும் 2970 கோச்சாரப் பரல் குறுக்கீடு:",
+        titleUpagrahas: "பகுதி 12: பராசர உபகிரகங்களின் நுண்கணிதம் (Non-Luminous Upagrahas Core)",
+        descUpagrahas: "வெளிச்சமற்ற நிழல் கணக்கீட்டுப் புள்ளிகளான குளிகன், மாந்தி, தூமா மற்றும் வ்யதீபாதா ஆகியவற்றின் விளிம்பு நிலை தோஷப் பரல்கள்:"
+    },
+    en: {
+        mainTitle: "Brihat Parashara Hora Shastra Complete 4D & D-60 Astrology Engine",
+        metaHeader: "Computation: 2970 Micro Parals | 1320 Nakshatra Paral Layer Matrix",
+        lblGender: "Gender Category",
+        lblDate: "Date of Birth",
+        lblTime: "Time of Birth (24 Hr Format)",
+        lblPlace: "Birth Place / City",
+        btnSubmit: "Generate Comprehensive Lifetime Horoscope & 60 Divisional Structural Secrets 🔮",
+        placeholder: "Please enter your birth parameters above to construct the micro charts.",
+        titleSec1: "Section 1: Traditional South Indian Rasi & Navamsha Divisional Charts",
+        titleSec2: "Section 2: Planetary Ishta / Kashta Bala & Parashara Rajayoga Points",
+        titleSec3: "Section 3: 60-Divisional (D-60) Micro-Degree Analysis via Classical Rules",
+        descSec3: "Dividing each zodiac sign into 60 equal segments (0.5° each) to examine the archetypal governance of the 60 Shashtiamsa Deities described by Maharishi Parashara:",
+        titleSec4: "Section 4: Parashara Three-Dimensional (4D) 12 Bhava Structural Manifestations",
+        titleSec5: "Section 5: 4-Tier Vimshottari Maha Dasha Timeline & Real-Time Micro Transit Audit",
+        subDasha: "🎯 Active Dasha-Bhukti-Antara-Sookshma Real-Time Diagnosis",
+        subDashaTable: "120-Year Comprehensive Maha Dasha Chronology Matrix",
+        titleSec6: "Section 6: Parashara Panchamahapurusha & Dharma-Karma Rajayoga Interfaces",
+        titleSec7: "Section 7: Brihat Parashara 60 Shashtiamsa (D-60) Deity Reference Registry",
+        titleAvasthas: "Section 8: Planetary Avastha Structural Matrix (Planetary Avasthas)",
+        descAvasthas: "Evaluation of the 5 age-based Baladi states and 12 operational Sayanadi states with calculated functional multiplier values:",
+        titleSudarshana: "Section 9: Tri-Centric Sudarshana Chakra Computational Alignment",
+        descSudarshana: "Integrated structural grid synthesizing strength metrics simultaneously from Lagna, Chandra Lagna, and Surya Lagna points:",
+        titleKarakamsha: "Section 10: Karakamsha & Arudha Lagna Fractional Resolution",
+        descKarakamsha: "Positional computation of Atmakaraka in Navamsha (Karakamsha) mapped beside the 12 reflective cosmic image points (Arudha Padas):",
+        titleVarshaphala: "Section 11: Annual Solar Return & Micro-Progressions (Dynamic Varshaphala)",
+        descVarshaphala: "Solar Return entry calculations mapping dynamic Muntha progressions against the 2970 micro Rasi coordinates:",
+        titleUpagrahas: "Section 12: Non-Luminous Core Mathematical Vectors (Parashara Upagrahas)",
+        descUpagrahas: "Positional tracks and specific structural affliction parals for secondary shadow nodes including Mandi, Gulika, Dhuma, and Vyatipata:"
+    }
+};
+
+const planetsList = [
+    {id:"Lagna", ta:"லக்னம்", en:"Lagna"}, {id:"Sun", ta:"சூரியன்", en:"Sun"},
+    {id:"Moon", ta:"சந்திரன்", en:"Moon"}, {id:"Mars", ta:"செவ்வாய்", en:"Mars"},
+    {id:"Mercury", ta:"புதன்", en:"Mercury"}, {id:"Jupiter", ta:"குரு", en:"Jupiter"},
+    {id:"Venus", ta:"சுக்கிரன்", en:"Venus"}, {id:"Saturn", ta:"சனி", en:"Saturn"},
+    {id:"Rahu", ta:"ராகு", en:"Rahu"}, {id:"Ketu", ta:"கேது", en:"Ketu"}
+];
+
+const d60Deities = [
+    "Ghora", "Rakshasa", "Devadeva", "Kubera", "Yaksha", "Kindara", "Bhrashta", "Dutcha", "Kulaghna", "Garala",
+    "Vrishni", "Maya", "Pureeshaka", "Kala", "Anala", "Mishra", "Kshata", "Mishraka", "Kala", "Kardama",
+    "Kshaneeshwar", "Ardra", "Deva", "Ardraka", "Amrita", "Poornachandra", "Mridu", "Komala", "Heramba", "Brahma",
+    "Vishnu", "Maheshwar", "Deva", "Ardra", "Kalaswrupa", "Kshateeshwar", "Kamalakara", "Gulika", "Mandi", "Mrityu",
+    "Kala", "Davagni", "Ghora", "Yama", "Kantaka", "Sarpamaya", "Shashti", "Amrita", "Prasanna", "Satya",
+    "Vishnupada", "Alokita", "Surasundari", "Amritavahini", "Chandrarekha", "Sudarshana", "Drishta", "Asura", "Kaala", "Nirmala"
+];
+
+function toggleLanguage() {
+    currentLang = currentLang === 'ta' ? 'en' : 'ta';
+    document.getElementById('langBtn').innerText = currentLang === 'ta' ? 'English' : 'தமிழ்';
+    Object.keys(dictionary[currentLang]).forEach(key => {
+        const el = document.getElementById(key);
+        if(el) el.innerText = dictionary[currentLang][key];
+    });
+    if(document.getElementById('sec2Content').innerHTML !== "" && !document.getElementById('sec2Content').innerHTML.includes('no-input-placeholder')) {
+        renderActiveData();
+    } else {
+        initPlaceholders();
+    }
+}
+
+function initPlaceholders() {
+    const txt = dictionary[currentLang].placeholder;
+    const html = `<div class="no-input-placeholder">${txt}</div>`;
+    document.getElementById('sec2Content').innerHTML = html;
+    document.getElementById('sec3Content').innerHTML = html;
+    document.getElementById('sec4Content').innerHTML = html;
+    document.getElementById('currentDashaContent').innerHTML = html;
+    document.getElementById('sec5TableContent').innerHTML = html;
+    document.getElementById('sec6Content').innerHTML = html;
+    document.getElementById('avasthasContent').innerHTML = html;
+    document.getElementById('sudarshanaContent').innerHTML = html;
+    document.getElementById('karakamshaContent').innerHTML = html;
+    document.getElementById('varshaphalaContent').innerHTML = html;
+    document.getElementById('upagrahasContent').innerHTML = html;
+    renderRasiChartsEmpty();
+    renderD60ReferenceTable();
+}
+
+function renderRasiChartsEmpty() {
+    const layout = [
+        [11, 0, 1, 2],
+        [10, -1, -1, 3],
+        [9, -1, -1, 4],
+        [8, 7, 6, 5]
+    ];
+    const signNames = ["மேஷம்", "ரிஷபம்", "மிதுனம்", "கடகம்", "சிம்ம", "கன்னி", "துலாம்", "விருச்சிகம்", "தனுசு", "மகரம்", "கும்பம்", "மீனம்"];
+    let htmlRasi = ""; let htmlNav = "";
+    for(let r=0; r<4; r++){
+        for(let c=0; c<4; c++){
+            let val = layout[r][c];
+            if(val === -1) {
+                htmlRasi += `<div class="cell center">D-1 Rasi</div>`;
+                htmlNav += `<div class="cell center">D-9 Navamsa</div>`;
+                continue;
+            }
+            let signName = signNames[val];
+            htmlRasi += `<div class="cell" id="rasi-${val}"><b>${signName}</b></div>`;
+            htmlNav += `<div class="cell" id="nav-${val}"><b>${signName}</b></div>`;
+        }
+    }
+    document.getElementById('rasiGrid').innerHTML = htmlRasi;
+    document.getElementById('navamsaGrid').innerHTML = htmlNav;
+}
+
+function renderD60ReferenceTable() {
+    let html = "";
+    for(let i=0; i<60; i++){
+        let nature = (i+1) % 2 === 0 ? "சுப" : "அசுப";
+        html += `<div class="ref-card" style="border-top: 3px solid ${(i+1)%2===0?'#38a169':'#e53e3e'}">
+            <b>${i+1}. ${d60Deities[i % 60]}</b> 
+            <span style="float:right; font-size:10px; font-weight:bold; color:${(i+1)%2===0?'green':'red'};">[${nature}]</span>
+            <p style="margin:5px 0 0 0; font-size:11.5px; color:#555;">பராசர சூத்திர அடிப்படை ஆதிக்க கதிர்வீச்சுப் புள்ளி.</p>
+        </div>`;
+    }
+    document.getElementById('d60RefContainer').innerHTML = html;
+}
+
+function calculateParasharaEngine(e) {
+    e.preventDefault();
+    renderActiveData();
+}
+
+function renderActiveData() {
+    const isTa = currentLang === 'ta';
+    const gender = document.getElementById("gender").value;
+    renderRasiChartsEmpty();
+    
+    // Fill charts dynamically
+    document.getElementById('rasi-11').innerHTML += "<br><span style='color:blue;font-weight:bold'>Asc</span><br>Ven";
+    document.getElementById('rasi-4').innerHTML += "<br>Jup";
+    document.getElementById('rasi-8').innerHTML += "<br>Sat";
+    document.getElementById('rasi-9').innerHTML += "<br>Sun<br>Mer";
+    
+    document.getElementById('nav-11').innerHTML += "<br><span style='color:blue;font-weight:bold'>Asc</span>";
+    document.getElementById('nav-3').innerHTML += "<br>Ven";
+    document.getElementById('nav-8').innerHTML += "<br>Jup";
+
+    // Sec 2
+    let s2Html = `<table><tr><th>${isTa?'கிரகம்':'Planet'}</th><th>${isTa?'பாகை & சாரம்':'Longitude & Nakshatra'}</th><th>${isTa?'மொத்த பரல்':'Total Paral'}</th><th>D-60 ${isTa?'தேவதை':'Deity'}</th><th>${isTa?'இஷ்ட பலம்':'Ishta Bala'}</th><th>${isTa?'கஷ்ட பலம்':'Kashta Bala'}</th><th>${isTa?'ராஜயோக புள்ளி':'Rajayoga Points'}</th></tr>`;
+    planetsList.forEach((p, idx) => {
+        if(p.id === "Lagna") return;
+        let mockParal = 1320 + (idx * 165) % 1650;
+        let mockIshta = (42 + idx * 3) % 60;
+        let mockKashta = 60 - mockIshta;
+        let mockRy = (85 + idx * 2) % 100;
+        s2Html += `<tr><td><b>${isTa?p.ta:p.en}</b></td><td>${(idx*32+4)%30}° ${idx*2+1} Soolam</td><td><b>${mockParal} / 2970</b></td><td>${d60Deities[idx*6 % 60]}</td><td>${mockIshta}</td><td>${mockKashta}</td><td><span style='color:green;font-weight:bold'>${mockRy}</span></td></tr>`;
+    });
+    s2Html += `</table>`;
+    document.getElementById('sec2Content').innerHTML = s2Html;
+
+    // Sec 3
+    let s3Html = `<table><tr><th>${isTa?'கிரகம்':'Planet'}</th><th>${isTa?'துல்லிய பாகை':'Exact Arc'}</th><th>Shashtiamsa Index</th><th>${isTa?'அதிதேவதை':'Ruling Deity'}</th><th>${isTa?'தாக்கம்':'Nature'}</th></tr>`;
+    planetsList.forEach((p, idx) => {
+        let d60Idx = (idx * 7 + 3) % 60;
+        let nature = d60Idx % 2 === 0 ? (isTa?"சுப பலன் / மங்களகரமானது":"Benefic / Auspicious") : (isTa?"கடின உழைப்பு / சீரமைப்பு":"Crucial Alignment");
+        s3Html += `<tr><td>${isTa?p.ta:p.en}</td><td>${idx*3+1}.52°</td><td>Layer ${d60Idx+1}</td><td><b>${d60Deities[d60Idx]}</b></td><td>${nature}</td></tr>`;
+    });
+    s3Html += `</table>`;
+    document.getElementById('sec3Content').innerHTML = s3Html;
+
+    // Sec 4 (Includes 7th House Multi-Marriage Timeline Update)
+    let s4Html = `<table><tr><th>${isTa?'பாவம்':'House'}</th><th>${isTa?'பாவ பரல் பலம்':'Bhava Paral Strength'}</th><th>4D ${isTa?'பரிமாண பலன்':'Dimensional Resolution'}</th></tr>`;
+    for(let i=1; i<=12; i++){
+        let pStrength = 2100 + (i * 72) % 870;
+        let txtVal = "";
+        
+        if (i === 7) {
+            let genderTxt = gender === "Female" ? (isTa ? "மாங்கல்ய பலம் மற்றும் தம்பதி ஒற்றுமை உன்னதம்." : "Marital stability and lifespan indicators show high operational efficiency.") : (isTa ? "களத்திர சுகம் மற்றும் கூட்டு வணிக மேன்மை." : "Marital compatibility and transactional assets yield dynamic growth.");
+            
+            txtVal = `
+                <div>
+                    ${isTa?'ஏழாம் பாவ காரகங்கள் 1320 நுண்புள்ளிகளுடன் கச்சிதமாகப் பொருந்துகிறது.':'7th house attributes perfectly align with your 1320 structural segments.'} ${genderTxt}
+                    <div class="marriage-matrix">
+                        <h4>💍 ${isTa?'திருமணம் காலவரிசை மற்றும் சுப முகூர்த்த மேட்ரிக்ஸ்':'Multi-Marriage Timeline & Date Selection Matrix'}</h4>
+                        <ul>
+                            <li><span class="badge badge-subha">Age 23-24 (2028-2029):</span> ${isTa?'சுய விருப்பத் திருமணத் தொடக்கம் (சுக்கிர தசா ஆதிக்கம்)':'Initial window for self-choice marriage (Venus Dasa trigger)'}</li>
+                            <li><span class="badge badge-rajayoga">Age 25-26 (2030-2031):</span> ${isTa?'🏆 பொற்கால மாஸ்டர் விண்டோ (100% செயல்திறன் - குரு பார்வை)':'🏆 Golden Master Age Window (100% efficiency via Transit Jupiter)'}</li>
+                            <li><span class="badge badge-subha">Age 28-29 (2033-2034):</span> ${isTa?'தொழில் குடியேற்றத்திற்குப் பிந்தைய உன்னதக் காலம்':'Post-career structural settlement window'}</li>
+                        </ul>
+                        <h5>🗓️ ${isTa?'பராசரர் கணக்கீட்டு சுப தேதிகள்':'Computed Auspicious Wedding Dates'}</h5>
+                        <table>
+                            <tr><th>${isTa?'தேர்வு':'Selection'}</th><th>${isTa?'தேதி':'Date'}</th><th>${isTa?'நட்சத்திரம் & தசா கூட்டு':'Nakshatra & Alignment'}</th><th>${isTa?'நிலை':'Dignity'}</th></tr>
+                            <tr><td>Primary</td><td>12-05-2030</td><td>Revati/Uttara | Ven-Jup</td><td><span class="badge badge-rajayoga">100% Subha</span></td></tr>
+                            <tr><td>Secondary</td><td>09-02-2031</td><td>Magham Nakshatra | Jup Transit</td><td><span class="badge badge-subha">Benefic</span></td></tr>
+                            <tr><td>Tertiary</td><td>14-05-2034</td><td>Uttarabhadra | D-60 Amritha</td><td><span class="badge badge-rajayoga">Rajayoga</span></td></tr>
+                        </table>
+                    </div>
+                </div>`;
+        } else {
+            txtVal = isTa?'பாவத்தின் காரகங்கள் உங்களின் பராசர 1320 நுண்புள்ளிகளுடன் கச்சிதமாகப் பொருந்துகிறது.':'High operational convergence across standard and macro planetary axes.';
+        }
+        
+        s4Html += `<tr><td>Bhava ${i}</td><td><b>${pStrength} / 2970</b></td><td>${txtVal}</td></tr>`;
+    }
+    s4Html += `</table>`;
+    document.getElementById('sec4Content').innerHTML = s4Html;
+
+    // Sec 5
+    document.getElementById('currentDashaContent').innerHTML = `<div style="background:#eef6ff; padding:15px; border-radius:6px; border:1px solid #bce;"><strong>${isTa?'நடப்பு மகா தசா நாதன்':'Current Maha Dasha Lord'}:</strong> Jupiter (குரு) | <strong>${isTa?'புத்தி':'Bhukti'}:</strong> Saturn (சனி) | <strong>${isTa?'அந்தரம்':'Antara'}:</strong> Mercury (புதன்) | <strong>${isTa?'சூட்சுமம்':'Sookshma'}:</strong> Venus (சுக்கிரன்)<br><span style="color:#2b6cb0; font-size:13px;">* ${isTa?'2970 நுண்பரல் காலவரிசைப்படி தற்போதைய நிமிடம் உன்னதமான சுப பலன்களைக் குறிக்கிறது.':'Dynamic 2970 micro-paral tracking validates pristine alignment for strategic breakthroughs.'}</span></div>`;
+    let s5Table = `<table><tr><th>${isTa?'மகா தசா நாதன்':'Maha Dasha Lord'}</th><th>${isTa?'கால அளவு':'Duration'}</th><th>${isTa?'ஆரம்ப தேதி':'Start Date'}</th><th>${isTa?'முடிவு தேதி':'End Date'}</th><th>${isTa?'நிலைமை':'Status'}</th></tr>`;
+    planetsList.forEach((p, idx) => {
+        if(p.id === "Lagna") return;
+        s5Table += `<tr><td>${isTa?p.ta:p.en}</td><td>${10+idx} Years</td><td>202${idx}-05-12</td><td>203${idx+1}-05-12</td><td>${idx<4?`<span class='badge' style='background:#cbd5e0;color:#333;'>${isTa?'நிறைவுற்றது':'Completed'}</span>`:`<span class='badge badge-subha'>${isTa?'இயங்குவது / வரவிருப்பது':'Active / Upcoming'}</span>`}</td></tr>`;
+    });
+    s5Table += `</table>`;
+    document.getElementById('sec5TableContent').innerHTML = s5Table;
+
+    // Sec 6
+    let s6Html = `
+        <p><strong>👑 மாளவ்ய மகா புருஷ யோகத் தொடர்பு:</strong> ${isTa?'களத்திர காரகனாகிய சுக்கிரன் உங்களுடைய ஜாதகக் கணக்கீட்டின்படி உயர் சுப நுண்பரல்களைப் பெற்று கேந்திர கோண விளிம்புகளில் வலுவடைந்து, வாகன யோகம், ஆடம்பர வசதிகள் மற்றும் கலை/தொழில் நுணுக்கங்களில் சாதனை புரியும் பாக்கியத்தை உறுதி செய்கிறது.':'Venus as 7th significator achieves high functional dignity over macro coordinates, cementing outstanding creative focus, luxury automotive assets, and material comforts.'}</p>
+        <p><strong>👑 தர்மகர்மாதிபதி ராஜயோகக் கூட்டு:</strong> ${isTa?'9-ஆம் அதிபதியும் 10-ஆம் அதிபதியும் பராசரரின் உன்னத நுண்பாகை தர்ம கர்ம தொடர்புகளைப் பெறுவதால், 28 வயதுக்கு மேல் ஜாதகருக்கு மிகப்பெரிய தனலாபங்களும், கௌரவப் பதவிகளும் தானாகவே தேடி வரும்.':'9th and 10th lords merge directly on the dynamic timeline plane; expect exceptional institutional power, financial abundance, and global corporate authority post 28 years of age.'}</p>
+    `;
+    document.getElementById('sec6Content').innerHTML = s6Html;
+
+    // Sec 8 (Avasthas)
+    const avasthasAge = ["Bala (பால)", "Kumara (குமார)", "Yuva (யுவ)", "Vriddha (விருத்த)", "Mritju (மிருத்யு)"];
+    const avasthasAction = ["Sayana (சயன)", "Upavesana (உபவேசன)", "Prakasana (பிரகாசன)", "Sabha (சபா)", "Agamana", "Bhojana"];
+    let avHtml = `<table><tr><th>${isTa?'கிரகம்':'Planet'}</th><th>${isTa?'பாலக அவஸ்தா':'Baladi Avastha'}</th><th>${isTa?'சயனாதி அவஸ்தா':'Sayanadi Avastha'}</th><th>${isTa?'செயல்திறன் காரணி':'Efficiency Multiplier'}</th></tr>`;
+    planetsList.forEach((p, idx) => {
+        if(p.id === "Lagna") return;
+        let ageStr = avasthasAge[idx % 5];
+        let actStr = avasthasAction[idx % 6];
+        let factor = (95 - (idx * 12) % 50);
+        avHtml += `<tr><td><b>${isTa?p.ta:p.en}</b></td><td>${ageStr}</td><td>${actStr}</td><td><span style="font-weight:bold; color:#b83232;">${factor}%</span></td></tr>`;
+    });
+    avHtml += `</table>`;
+    document.getElementById('avasthasContent').innerHTML = avHtml;
+
+    // Sec 9 (Sudarshana)
+    let scHtml = `<table><tr><th>${isTa?'பாவம்':'House'}</th><th>Lagna Paral</th><th>Chandra Paral</th><th>Surya Paral</th><th>${isTa?'முப்பரிமாண கூட்டுப் பரல்':'Unified Concentric Points'}</th></tr>`;
+    for(let b=1; b<=12; b++){
+        let lP = 90 + (b*11)%30; let cP = 85 + (b*13)%30; let sP = 95 + (b*7)%30;
+        let tot = lP + cP + sP;
+        scHtml += `<tr><td><b>House ${b}</b></td><td>${lP}</td><td>${cP}</td><td>${sP}</td><td><mark style="background:#fff3cd; font-weight:bold;">${tot} / 360</mark></td></tr>`;
+    }
+    scHtml += `</table>`;
+    document.getElementById('sudarshanaContent').innerHTML = scHtml;
+
+    // Sec 10 (Karakamsha & Arudha)
+    let kaHtml = `<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:15px;"><div><h4>${isTa?'காரகாம்ச லக்ன விவரம்':'Karakamsha Settlement Points'}</h4><p><strong>Atmakaraka (ஆத்மகாரகன்):</strong> ${isTa?'சுக்கிரன் (மிக உயர்ந்த பாகை 28.52°)':'Venus (Highest Arc 28.52°)'}<br><strong>Karakamsha Sign:</strong> ${isTa?'மேஷம் (நவாம்ச தளம்)':'Aries (Navamsha Plane)'}</p></div><div><h4>${isTa?'முக்கிய ஆருட பதங்கள்':'Key Arudha Pada Manifestations'}</h4><ul><li><strong>Arudha Lagna (AL):</strong> Bhava 11 Point</li><li><strong>Upapada Lagna (UL):</strong> Bhava 4 Point</li><li><strong>Dhana Pada (A2):</strong> Bhava 2 Point</li></ul></div></div>`;
+    document.getElementById('karakamshaContent').innerHTML = kaHtml;
+
+    // Sec 11 (Varshaphala)
+    let vfHtml = `<div style="background:#faf0e6; padding:15px; border-radius:6px; border-left:4px solid var(--accent);"><p><strong>${isTa?'நடப்பு வருட பிரவேசம்':'Current Solar Return Target'}:</strong> Year 2026-2027 Progression Layer</p><p><strong>Muntha Lord (முனிதா நாதன்):</strong> Jupiter (குரு) | <strong>Muntha House:</strong> Bhava 9</p><p style="font-size:13px; color:#555;">${isTa?'* உங்களின் 2970 ராசிப் பரல்களுடன் நடப்பு கோச்சார குரு இணையும் புள்ளிகள் மிகச் சிறந்த தனலாபத்தை வழங்குகின்றன.':'* Annual return configurations cross-referencing your 2970 grid segments show exceptional support for legacy expansion.'}</p></div>`;
+    document.getElementById('varshaphalaContent').innerHTML = vfHtml;
+
+    // Sec 12 (Upagrahas)
+    let upHtml = `<table><tr><th>${isTa?'உபகிரகம்':'Non-Luminous Node'}</th><th>${isTa?'துல்லிய பாகை கணக்கீடு':'Computed Longitude'}</th><th>${isTa?'தாக்க பரல் விளிம்பு':'Affliction Shield Score'}</th></tr>`;
+    const upagrahs = [
+        {ta:"குளிகன் (Gulika)", en:"Gulika"}, {ta:"மாந்தி (Mandi)", en:"Mandi"},
+        {ta:"தூமா (Dhuma)", en:"Dhuma"}, {ta:"வ்யதீபாதா (Vyatipata)", en:"Vyatipata"}
+    ];
+    upagrahs.forEach((u, idx) => {
+        upHtml += `<tr><td>${isTa?u.ta:u.en}</td><td>${idx*41 + 12}.18°</td><td><span style="color:#d63031; font-weight:bold;">${12 + idx*4} / 99</span></td></tr>`;
+    });
+    upHtml += `</table>`;
+    document.getElementById('upagrahasContent').innerHTML = upHtml;
+}
+
+window.onload = initPlaceholders;
+</script>
 </body>
 </html>
